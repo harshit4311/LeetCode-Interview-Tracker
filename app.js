@@ -493,58 +493,71 @@ document.addEventListener('DOMContentLoaded', function () {
                 { name: 'Design Browser History', frequency: 2 },
             ]
         },
+        {
+            "name": "Test",
+            "image": "https://imgs.search.brave.com/fSE9A9qxkNGyiDZlbpSNBQxFCGIT1ayykzyrWkV3Bic/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9n/cnVuZ2UtYmxhY2st/Y29uY3JldGUtdGV4/dHVyZWQtYmFja2dy/b3VuZF81Mzg3Ni0x/MjQ1NDEuanBnP3Np/emU9NjI2JmV4dD1q/cGc",
+            "problems": [
+                {name: "Two Sum", frequency: 46, link: "https://leetcode.com/problems/two-sum/description/"}
+            ]
+        },
         
     ];
 
-    function updateCompanyInfo() {
-        companyInfo.innerHTML = '';
-    
-        leetCodeCompanies.forEach(company => {
-            const companyDiv = document.createElement('div');
-            companyDiv.classList.add('company-section');
-            companyDiv.style.backgroundImage = `url(${company.image})`;
-            companyDiv.style.backgroundSize = 'cover';
-            companyDiv.style.backgroundPosition = 'center';
-    
-            const companyHeader = document.createElement('h2');
-            companyHeader.classList.add('company-name');
-    
-            const companyNameParts = company.name.split(' ');
-    
-            companyNameParts.forEach((part, index) => {
-                const partSpan = document.createElement('span');
-                partSpan.textContent = part;
-    
-                // Set text color to white for "Salesforce"
-                if (company.name === 'Salesforce') {
-                    partSpan.style.color = 'white';
-                }
-    
-                companyHeader.appendChild(partSpan);
-    
-                // Add space between name parts, except for the last part
-                if (index < companyNameParts.length - 1) {
-                    companyHeader.appendChild(document.createTextNode(' '));
-                }
-            });
-    
-            companyDiv.appendChild(companyHeader);
-    
-            const problemsList = document.createElement('div');
-            problemsList.classList.add('problems-list');
-    
-            company.problems.forEach(problem => {
-                const problemDiv = document.createElement('div');
-                problemDiv.classList.add('problem-item');
-                problemDiv.innerHTML = `<p>${problem.name}</p><p>Frequency: ${problem.frequency} times</p>`;
-                problemsList.appendChild(problemDiv);
-            });
-    
-            companyDiv.appendChild(problemsList);
-            companyInfo.appendChild(companyDiv);
-        });
+    // Function to redirect to the specified link in a new tab
+    function redirectToLink(link) {
+        window.open(link, '_blank');
     }
-    
-    updateCompanyInfo();
-    
+
+    // Iterate through companies and problems
+    leetCodeCompanies.forEach(company => {
+        const companyDiv = document.createElement('div');
+        companyDiv.classList.add('company-section');
+        companyDiv.style.backgroundImage = `url(${company.image})`;
+        companyDiv.style.backgroundSize = 'cover';
+        companyDiv.style.backgroundPosition = 'center';
+
+        const companyHeader = document.createElement('h2');
+        companyHeader.classList.add('company-name');
+
+        const companyNameParts = company.name.split(' ');
+
+        companyNameParts.forEach((part, index) => {
+            const partSpan = document.createElement('span');
+            partSpan.textContent = part;
+
+            // Set text color to white for "Salesforce"
+            if (company.name === 'Salesforce') {
+                partSpan.style.color = 'white';
+            }
+
+            companyHeader.appendChild(partSpan);
+
+            // Add space between name parts, except for the last part
+            if (index < companyNameParts.length - 1) {
+                companyHeader.appendChild(document.createTextNode(' '));
+            }
+        });
+
+        companyDiv.appendChild(companyHeader);
+
+        const problemsList = document.createElement('div');
+        problemsList.classList.add('problems-list');
+
+        company.problems.forEach(problem => {
+            const problemDiv = document.createElement('div');
+            problemDiv.classList.add('problem-item');
+            problemDiv.innerHTML = `<p>${problem.name}</p><p>Frequency: ${problem.frequency} times</p>`;
+
+            // Add click event listener to redirect to the specified link in a new tab
+            problemDiv.addEventListener('click', function () {
+                redirectToLink(problem.link);
+            });
+
+            // Append the problem div to the problemsList
+            problemsList.appendChild(problemDiv);
+        });
+
+        companyDiv.appendChild(problemsList);
+        companyInfo.appendChild(companyDiv);
+    });
 });
