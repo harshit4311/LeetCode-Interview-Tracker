@@ -1,0 +1,90 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('PastelGradient.webp'); /* Path to the image file */
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* Set background image for the Facebook section */
+/* .facebook-section {
+    background-image: url('https://imgs.search.brave.com/WuwG3mtGydfFlVFomP_HY_XvWWT4HkGTC4bzflMDZn0/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jZG4u/bW9zLmNtcy5mdXR1/cmVjZG4ubmV0LzVX/Q2RINFFYMlFQZ3NY/OVlKZlczWUgtMzIw/LTgwLnBuZw');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 20px; /* Add margin for spacing */
+    /* padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    color: white;
+} */
+
+
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em;
+}
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Light background color with opacity for better readability */
+    border-radius: 8px; /* Optional: Add border-radius for a rounded appearance */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add box shadow for a subtle elevation effect */
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Add styles for the company sections */
+.company-section {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-size: cover;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.company-section h2 {
+    color: white; /* Set company name color to white */
+    font-weight: bold; /* Set company name to bold */
+}
+
+.problems-list .problem-item {
+    margin-bottom: 8px;
+    padding: 8px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    color: black; /* Set problem text color to black */
+    font-style: bold; /* Set problem text to bold */
+}
