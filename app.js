@@ -516,8 +516,11 @@ document.addEventListener('DOMContentLoaded', function () {
         companyDiv.style.backgroundSize = 'cover';
         companyDiv.style.backgroundPosition = 'center';
 
-        const companyHeader = document.createElement('h2');
-        companyHeader.classList.add('company-name');
+        const companyHeader = document.createElement('div');
+        companyHeader.classList.add('company-header');
+
+        const companyNameDiv = document.createElement('div');
+        companyNameDiv.classList.add('company-name');
 
         const companyNameParts = company.name.split(' ');
 
@@ -530,14 +533,25 @@ document.addEventListener('DOMContentLoaded', function () {
                 partSpan.style.color = 'white';
             }
 
-            companyHeader.appendChild(partSpan);
+            companyNameDiv.appendChild(partSpan);
 
             // Add space between name parts, except for the last part
             if (index < companyNameParts.length - 1) {
-                companyHeader.appendChild(document.createTextNode(' '));
+                companyNameDiv.appendChild(document.createTextNode(' '));
             }
         });
 
+        const button = document.createElement('button');
+        button.classList.add('learn-more');
+        button.innerHTML = '<div class="circle"><div class="icon arrow"></div></div><span class="button-text">Learn More</span>';
+
+        button.addEventListener('click', function () {
+            const problemsList = companyDiv.querySelector('.problems-list');
+            problemsList.style.display = problemsList.style.display === 'block' ? 'none' : 'block';
+        });
+
+        companyHeader.appendChild(companyNameDiv);
+        companyHeader.appendChild(button);
         companyDiv.appendChild(companyHeader);
 
         const problemsList = document.createElement('div');
