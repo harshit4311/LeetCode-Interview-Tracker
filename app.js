@@ -571,6 +571,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const problemsList = document.createElement('div');
         problemsList.classList.add('problems-list');
+        problemsList.style.display = 'none'; // Set initial display to none
 
         company.problems.forEach(problem => {
             const problemDiv = document.createElement('div');
